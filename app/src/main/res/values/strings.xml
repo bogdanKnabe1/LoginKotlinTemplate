@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">LoginFirebaseProject</string>
+    <string name="login_template_header">Login template</string>
+    <string name="login_template_sub_header">Something to write</string>
+    <string name="username">Email</string>
+    <string name="password">Password</string>
+    <string name="login_in_button">LOGIN IN</string>
+    <string name="forgot_password_text_button">Forgot password ?</string>
+    <string name="register_text_button">Register</string>
+    <string name="age">Age</string>
+    <string name="fullname">Full name</string>
+</resources>

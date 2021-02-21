@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "138996620414",
+    "firebase_url": "https://fir-auth-mvvm-f4e59.firebaseio.com",
+    "project_id": "fir-auth-mvvm-f4e59",
+    "storage_bucket": "fir-auth-mvvm-f4e59.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138996620414:android:dfdcf9d5663380e9cc8c2f",
+        "android_client_info": {
+          "package_name": "com.ninpou.loginfirebaseproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138996620414-p5fsk3obt82q0iojvqhsho12ab6e8lvu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqPcieqQ2lduB1cJWj5c1teBF2i5_4LtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138996620414-p5fsk3obt82q0iojvqhsho12ab6e8lvu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
