@@ -9,4 +9,5 @@
     <string name="register_text_button">Register</string>
     <string name="age">Age</string>
     <string name="fullname">Full name</string>
+    <string name="register_user">REGISTER</string>
 </resources>
