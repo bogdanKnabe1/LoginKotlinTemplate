@@ -10,4 +10,6 @@
     <string name="age">Age</string>
     <string name="fullname">Full name</string>
     <string name="register_user">REGISTER</string>
+    <string name="user_greetings">Hello in Main Screen!</string>
+    <string name="log_out_button">Log out</string>
 </resources>
