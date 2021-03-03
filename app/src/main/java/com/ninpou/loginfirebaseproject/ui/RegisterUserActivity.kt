@@ -93,6 +93,7 @@ class RegisterUserActivity : AppCompatActivity() {
                         userPassword.toString().toInt()
                     )
                     //redirect to login layout
+                    onBackPressed()
                 } else {
                     //check global exceptions like user already exist etc
                     Toast.makeText(this, " Failed to create new user !", Toast.LENGTH_SHORT).show()
@@ -100,6 +101,8 @@ class RegisterUserActivity : AppCompatActivity() {
                 }
             }
     }
+
+
 
     // function for creating new user and check can we create a new one
     private fun writeNewUser(

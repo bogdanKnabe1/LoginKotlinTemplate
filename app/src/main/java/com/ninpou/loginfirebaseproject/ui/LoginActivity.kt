@@ -1,11 +1,11 @@
 package com.ninpou.loginfirebaseproject.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.ninpou.loginfirebaseproject.databinding.ActivityMainBinding
 
@@ -61,17 +61,25 @@ class LoginActivity : AppCompatActivity() {
 
         mainBinding.loginProgressBar.visibility = View.VISIBLE
 
+        // user auth with email and password can be changed on any other backend query/call
         mAuth.signInWithEmailAndPassword(userEmail.toString(), userPassword.toString())
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     //redirect to user profile
-                    startActivity(Intent(this, MainScreenActivity::class.java))
-                    mainBinding.loginProgressBar.visibility = View.GONE
-                    //check user input and add password field
-                } else {
-                    //check errors
-                    Toast.makeText(this, "Login failed!", Toast.LENGTH_SHORT).show()
+                    val user = FirebaseAuth.getInstance().currentUser
+                    if (user?.isEmailVerified == true) {
+                        startActivity(Intent(this, MainScreenActivity::class.java))
+                    } else {
+                        user?.sendEmailVerification()
+                        Toast.makeText(this, "Email verification sent !", Toast.LENGTH_SHORT).show()
+                    }
+                        mainBinding.loginProgressBar.visibility = View.GONE
+                        //check user input and add password field
+                    } else {
+                        //check errors
+                        Toast.makeText(this, "Login failed!", Toast.LENGTH_SHORT).show()
+                        mainBinding.loginProgressBar.visibility = View.GONE
+                    }
                 }
             }
     }
-}
