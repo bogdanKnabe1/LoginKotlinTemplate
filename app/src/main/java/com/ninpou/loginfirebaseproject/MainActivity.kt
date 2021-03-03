@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         mainBinding.registerNewUser.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(Intent(this, RegisterUserActivity::class.java))
         }
     }
 }
