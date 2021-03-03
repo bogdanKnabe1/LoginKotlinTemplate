@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.LoginActivity">
 
     <TextView
         android:id="@+id/header1"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/header1" />
 
     <EditText
-        android:id="@+id/username_edit_text"
+        android:id="@+id/email_login_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -47,7 +47,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/password_edit_text"
+        android:id="@+id/password_login_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -56,10 +56,10 @@
         android:hint="@string/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_edit_text" />
+        app:layout_constraintTop_toBottomOf="@+id/email_login_edit_text" />
 
     <Button
-        android:id="@+id/button_register"
+        android:id="@+id/button_login"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:layout_marginTop="20dp"
@@ -69,7 +69,7 @@
         android:text="@string/login_in_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_edit_text"/>
+        app:layout_constraintTop_toBottomOf="@+id/password_login_edit_text"/>
 
     <TextView
         android:id="@+id/forgot_password"
@@ -80,7 +80,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_register" />
+        app:layout_constraintTop_toBottomOf="@+id/button_login" />
 
     <TextView
         android:id="@+id/register_new_user"
@@ -91,7 +91,18 @@
         android:textSize="16sp"
         android:text="@string/register_text_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_register" />
+        app:layout_constraintTop_toBottomOf="@+id/button_login" />
+
+    <ProgressBar
+        android:id="@+id/login_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyleLarge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

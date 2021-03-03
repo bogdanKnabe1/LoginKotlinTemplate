@@ -1,4 +1,4 @@
-package com.ninpou.loginfirebaseproject
+package com.ninpou.loginfirebaseproject.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -38,7 +38,7 @@ class RegisterUserActivity : AppCompatActivity() {
         val userFullName = registerBinding.fullnameEditText.text.trim()
         val userAge = registerBinding.ageEditText.text.trim()
         val userEmail = registerBinding.emailEditText.text.trim()
-        val userPassword = registerBinding.passwordEditText.text.trim()
+        val userPassword = registerBinding.passwordRegisterEditText.text.trim()
 
         //check logic
         if (userFullName.isEmpty()) {
@@ -66,8 +66,8 @@ class RegisterUserActivity : AppCompatActivity() {
         }
 
         if (userPassword.isEmpty()) {
-            registerBinding.passwordEditText.error = "Password is required"
-            registerBinding.passwordEditText.requestFocus()
+            registerBinding.passwordRegisterEditText.error = "Password is required"
+            registerBinding.passwordRegisterEditText.requestFocus()
             return
         }
 
