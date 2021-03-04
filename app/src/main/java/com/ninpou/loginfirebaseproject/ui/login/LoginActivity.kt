@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
         val view = mainBinding.root
         setContentView(view)
 
+        // get instance of authentication
         mAuth = FirebaseAuth.getInstance()
 
         //redirect registered and LOGGED user in profile

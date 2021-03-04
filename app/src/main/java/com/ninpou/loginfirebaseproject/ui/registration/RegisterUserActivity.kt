@@ -5,15 +5,16 @@ import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.ninpou.loginfirebaseproject.databinding.ActivityRegisterBinding
 import com.ninpou.loginfirebaseproject.model.User
+import com.ninpou.loginfirebaseproject.ui.ScopedAppActivity
+import kotlinx.coroutines.launch
 
-class RegisterUserActivity : AppCompatActivity() {
+class RegisterUserActivity : ScopedAppActivity() {
 
     private lateinit var registerBinding: ActivityRegisterBinding
     private lateinit var mAuth: FirebaseAuth
@@ -102,26 +103,33 @@ class RegisterUserActivity : AppCompatActivity() {
             }
     }
 
-
-
-    // function for creating new user and check can we create a new one
+    // function for creating new user ( in coroutine ) and check can we create a new one
     private fun writeNewUser(
         userId: String,
         fullName: String,
         age: Int,
         email: String,
         password: Int
-    ) {
+    ) = launch {
         val user = User(fullName, age, email, password)
 
         database.child("Users").child(userId).setValue(user)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(this, " USER ADDED !", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@RegisterUserActivity,
+                        " USER ADDED !",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
                     registerBinding.progressBar.visibility = View.GONE
                 } else {
                     //check exceptions
-                    Toast.makeText(this, " Failed to register user !", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@RegisterUserActivity,
+                        " Failed to register user !",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     registerBinding.progressBar.visibility = View.GONE
                 }
             }
