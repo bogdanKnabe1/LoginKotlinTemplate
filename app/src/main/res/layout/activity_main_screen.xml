@@ -46,7 +46,7 @@
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_age_textView"
-        tools:text="Email: Bodya.one@gmail.com" />
+        tools:text="Email: Email.one@gmail.com" />
 
     <TextView
         android:id="@+id/user_password_textView"
