@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.ninpou.loginfirebaseproject.databinding.ActivityMainScreenBinding
 import com.ninpou.loginfirebaseproject.model.User
+import com.ninpou.loginfirebaseproject.ui.login.LoginActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

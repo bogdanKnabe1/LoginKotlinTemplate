@@ -1,4 +1,4 @@
-package com.ninpou.loginfirebaseproject.ui
+package com.ninpou.loginfirebaseproject.ui.registration
 
 import android.os.Bundle
 import android.util.Log

@@ -1,4 +1,4 @@
-package com.ninpou.loginfirebaseproject.ui
+package com.ninpou.loginfirebaseproject.ui.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,30 +7,37 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.ninpou.loginfirebaseproject.databinding.ActivityMainBinding
+import com.ninpou.loginfirebaseproject.databinding.ActivityLoginBinding
+import com.ninpou.loginfirebaseproject.ui.MainScreenActivity
+import com.ninpou.loginfirebaseproject.ui.forgotpassword.ForgotPasswordActivity
+import com.ninpou.loginfirebaseproject.ui.registration.RegisterUserActivity
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var mainBinding: ActivityMainBinding
+    private lateinit var mainBinding: ActivityLoginBinding
     private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainBinding = ActivityMainBinding.inflate(layoutInflater)
+        mainBinding = ActivityLoginBinding.inflate(layoutInflater)
         val view = mainBinding.root
         setContentView(view)
 
         mAuth = FirebaseAuth.getInstance()
 
-        //redirect registered and logged user in profile
+        //redirect registered and LOGGED user in profile
         if (FirebaseAuth.getInstance().currentUser != null) {
             startActivity(Intent(this, MainScreenActivity::class.java))
         }
-
+        // forgot password redirect
+        mainBinding.forgotPassword.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
+        }
+        // redirect to registration
         mainBinding.registerNewUser.setOnClickListener {
             startActivity(Intent(this, RegisterUserActivity::class.java))
         }
-
+        // make login in
         mainBinding.buttonLogin.setOnClickListener {
             userLogin()
         }
@@ -78,13 +85,13 @@ class LoginActivity : AppCompatActivity() {
                         user?.sendEmailVerification()
                         Toast.makeText(this, "Email verification sent !", Toast.LENGTH_SHORT).show()
                     }
-                        mainBinding.loginProgressBar.visibility = View.GONE
-                        //check user input and add password field
-                    } else {
-                        //check errors
-                        Toast.makeText(this, "Login failed!", Toast.LENGTH_SHORT).show()
-                        mainBinding.loginProgressBar.visibility = View.GONE
-                    }
+                    mainBinding.loginProgressBar.visibility = View.GONE
+                    //check user input and add password field
+                } else {
+                    //check errors
+                    Toast.makeText(this, "Login failed!", Toast.LENGTH_SHORT).show()
+                    mainBinding.loginProgressBar.visibility = View.GONE
                 }
             }
     }
+}

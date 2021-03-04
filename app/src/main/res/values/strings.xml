@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">LoginFirebaseProject</string>
     <string name="login_template_header">Login template</string>
+    <string name="register_template_header">Register template</string>
+    <string name="forgot_pass_template_header">Forgot password template</string>
     <string name="login_template_sub_header">Something to write</string>
     <string name="username">Email</string>
     <string name="password">Password</string>
@@ -12,4 +14,6 @@
     <string name="register_user">REGISTER</string>
     <string name="user_greetings">Hello in Main Screen!</string>
     <string name="log_out_button">Log out</string>
+    <string name="email_address_hint">Email address</string>
+    <string name="send_email_verification_button">Send email verification</string>
 </resources>
