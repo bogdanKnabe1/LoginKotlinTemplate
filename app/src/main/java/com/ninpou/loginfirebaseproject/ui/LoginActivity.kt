@@ -22,6 +22,11 @@ class LoginActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
+        //redirect registered and logged user in profile
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            startActivity(Intent(this, MainScreenActivity::class.java))
+        }
+
         mainBinding.registerNewUser.setOnClickListener {
             startActivity(Intent(this, RegisterUserActivity::class.java))
         }
